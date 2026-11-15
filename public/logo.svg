@@ -1,0 +1,5 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="38" font-family="'Chakra Petch', sans-serif" font-size="28" font-weight="700" fill="#F2F2F2" letter-spacing="2">BLACK LINE</text>
+  <line x1="2" y1="48" x2="140" y2="42" stroke="#E3262E" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="2" y="56" font-family="'Chakra Petch', sans-serif" font-size="8" font-weight="500" fill="#8E8E93" letter-spacing="3">DETAILING STUDIO</text>
+</svg>
