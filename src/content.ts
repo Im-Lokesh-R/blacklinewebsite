@@ -13,7 +13,7 @@ export const site = {
 };
 
 export const about = {
-  image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp',
+  image: '/images/wrx-grey.jpg',
   story:
     'BLACK LINE was founded on a simple obsession: every vehicle deserves to look better than the day it left the showroom. What started as a one-bay workshop has grown into a full-fledged detailing, protection, and customization studio — but the philosophy hasn\u2019t changed. We treat every car as if it\u2019s our own, because the difference between clean and flawless is measured in microns.',
   counters: [
@@ -32,17 +32,17 @@ export type Service = {
 };
 
 export const services: Service[] = [
-  { id: 'ceramic-coating', number: '01', name: 'Ceramic Coating', description: 'Lock in a glass-like shine that repels water, dirt, and UV damage for years.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp' },
-  { id: 'ppf', number: '02', name: 'Paint Protection Film', description: 'Self-healing transparent film that absorbs stone chips, scratches, and road debris.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp' },
-  { id: 'exterior-detailing', number: '03', name: 'Exterior Detailing', description: 'Deep clean, decontamination, and protection for every exterior surface.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp' },
-  { id: 'interior-detailing', number: '04', name: 'Interior Detailing', description: 'Sanitise, condition, and restore every surface inside the cabin.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp' },
-  { id: 'foam-wash', number: '05', name: 'Foam Wash', description: 'pH-neutral foam bath that lifts dirt without touching the paint.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp' },
-  { id: 'paint-correction', number: '06', name: 'Paint Correction', description: 'Machine polishing to remove swirl marks, oxidation, and holograms.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp' },
-  { id: 'vinyl-wrapping', number: '07', name: 'Vinyl Wrapping', description: 'Full or partial colour changes with premium cast vinyl films.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp' },
-  { id: 'headlight-restoration', number: '08', name: 'Headlight Restoration', description: 'Cloudy, yellowed lenses restored to factory clarity and protection.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp' },
-  { id: 'windshield-coating', number: '09', name: 'Windshield Coating', description: 'Hydrophobic coating that sheets rain away for safer driving.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp' },
-  { id: 'sunfilm', number: '10', name: 'Sunfilm', description: 'Heat-rejecting window films that keep the cabin cool and protected.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp' },
-  { id: 'modifications', number: '11', name: 'Modifications', description: 'Performance and aesthetic upgrades, installed and tuned in-house.', image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp' },
+  { id: 'ceramic-coating', number: '01', name: 'Ceramic Coating', description: 'Lock in a glass-like shine that repels water, dirt, and UV damage for years.', image: '/images/supra.jpg' },
+  { id: 'ppf', number: '02', name: 'Paint Protection Film', description: 'Self-healing transparent film that absorbs stone chips, scratches, and road debris.', image: '/images/porsche.jpg' },
+  { id: 'exterior-detailing', number: '03', name: 'Exterior Detailing', description: 'Deep clean, decontamination, and protection for every exterior surface.', image: '/images/wrx-grey.jpg' },
+  { id: 'interior-detailing', number: '04', name: 'Interior Detailing', description: 'Sanitise, condition, and restore every surface inside the cabin.', image: '/images/wrx-black.jpg' },
+  { id: 'foam-wash', number: '05', name: 'Foam Wash', description: 'pH-neutral foam bath that lifts dirt without touching the paint.', image: '/images/impreza-white.jpg' },
+  { id: 'paint-correction', number: '06', name: 'Paint Correction', description: 'Machine polishing to remove swirl marks, oxidation, and holograms.', image: '/images/supra.jpg' },
+  { id: 'vinyl-wrapping', number: '07', name: 'Vinyl Wrapping', description: 'Full or partial colour changes with premium cast vinyl films.', image: '/images/porsche.jpg' },
+  { id: 'headlight-restoration', number: '08', name: 'Headlight Restoration', description: 'Cloudy, yellowed lenses restored to factory clarity and protection.', image: '/images/wrx-grey.jpg' },
+  { id: 'windshield-coating', number: '09', name: 'Windshield Coating', description: 'Hydrophobic coating that sheets rain away for safer driving.', image: '/images/wrx-black.jpg' },
+  { id: 'sunfilm', number: '10', name: 'Sunfilm', description: 'Heat-rejecting window films that keep the cabin cool and protected.', image: '/images/impreza-white.jpg' },
+  { id: 'modifications', number: '11', name: 'Modifications', description: 'Performance and aesthetic upgrades, installed and tuned in-house.', image: '/images/supra.jpg' },
 ];
 
 export type Work = {
@@ -56,14 +56,11 @@ export type Work = {
 };
 
 export const works: Work[] = [
-  { id: 'w1', title: 'BMW M5 Competition', services: ['Paint Correction', 'Ceramic Coating'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp', hasSlider: false },
-  { id: 'w2', title: 'Audi RS7 Sportback', services: ['PPF', 'Exterior Detailing'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp', hasSlider: false },
-  { id: 'w3', title: 'Mercedes-AMG G63', services: ['Vinyl Wrapping', 'Foam Wash'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp', hasSlider: false },
-  { id: 'w4', title: 'Porsche 911 Carrera S', services: ['Paint Correction', 'Ceramic Coating'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp', hasSlider: true, beforeImage: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp', afterImage: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp' },
-  { id: 'w5', title: 'Range Rover Velar', services: ['Interior Detailing', 'Sunfilm'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp', hasSlider: false },
-  { id: 'w6', title: 'Lamborghini Huracán', services: ['PPF', 'Paint Correction'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p5.webp', hasSlider: false },
-  { id: 'w7', title: 'Toyota Supra GR', services: ['Headlight Restoration', 'Windshield Coating'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp', hasSlider: true, beforeImage: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp', afterImage: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p4.webp' },
-  { id: 'w8', title: 'Bentley Continental GT', services: ['Exterior Detailing', 'Ceramic Coating'], image: '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p3.webp', hasSlider: false },
+  { id: 'w1', title: 'Toyota GR Supra — Liberty Walk', services: ['Paint Correction', 'Ceramic Coating'], image: '/images/supra.jpg', hasSlider: false },
+  { id: 'w2', title: 'Porsche 911 GT Collection', services: ['PPF', 'Exterior Detailing'], image: '/images/porsche.jpg', hasSlider: false },
+  { id: 'w3', title: 'Subaru WRX STI — Gunmetal', services: ['Ceramic Coating', 'Headlight Restoration'], image: '/images/wrx-grey.jpg', hasSlider: false },
+  { id: 'w4', title: 'Subaru WRX STI — Gloss Black', services: ['Paint Correction', 'Modifications'], image: '/images/wrx-black.jpg', hasSlider: false },
+  { id: 'w5', title: 'Subaru Impreza WRX — Pearl White', services: ['Exterior Detailing', 'Foam Wash'], image: '/images/impreza-white.jpg', hasSlider: false },
 ];
 
 export const process = [
@@ -116,8 +113,8 @@ export const contact = {
   whatsappNumber: '919940331994',
   whatsappDisplay: '+91 99403 31994',
   email: 'info@blackline.detailing',
-  instagram: 'blackline.detailing',
-  instagramUrl: 'https://instagram.com/blackline.detailing',
+  instagram: 'blackline.detailing__',
+  instagramUrl: 'https://instagram.com/blackline.detailing__',
   address: '1st Main Rd, Poompuhar Nagar, Kolathur, Chennai, Tamil Nadu 600099',
   hours: 'Mon\u2013Sat: 9:00 AM \u2013 7:00 PM',
   hoursSun: 'Sun: Closed',
@@ -126,7 +123,7 @@ export const contact = {
 };
 
 export const socials = [
-  { name: 'Instagram', url: 'https://instagram.com/blackline.detailing' },
+  { name: 'Instagram', url: 'https://instagram.com/blackline.detailing__' },
   { name: 'WhatsApp', url: 'https://wa.me/919940331994' },
   { name: 'Facebook', url: 'https://facebook.com/blackline.detailing' },
   { name: 'YouTube', url: 'https://youtube.com/@blackline.detailing' },
@@ -140,4 +137,15 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export const heroImage = '/images/Gemini_Generated_Image_dpwbs5dpwbs5dpwb_merged_p2.webp';
+export const heroImage = '/images/supra.jpg';
+
+// Home page hero: images that slide through the 3 frames (left / centre / right), one by one.
+// Add or remove entries freely (works best with 4+). The 2nd entry starts in the centre.
+export const heroSlides = [
+  { src: '/images/wrx-grey.jpg', alt: 'Subaru WRX STI in the BLACK LINE workshop', position: 'center 60%' },
+  { src: '/images/supra.jpg', alt: 'Toyota GR Supra detailed by BLACK LINE', position: 'center 55%' },
+  { src: '/images/impreza-white.jpg', alt: 'Subaru Impreza WRX in pearl white', position: 'center 62%' },
+  { src: '/images/porsche.jpg', alt: 'Porsche 911 GT collection', position: 'center 55%' },
+  { src: '/images/wrx-black.jpg', alt: 'Subaru WRX STI with the hood open', position: 'center 38%' },
+];
+export const heroSlideInterval = 4500; // ms between moves

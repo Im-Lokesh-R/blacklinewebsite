@@ -14,6 +14,7 @@ import Contact from '@/components/Contact';
 import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
 import CustomCursor from '@/components/CustomCursor';
+import FloatingSocials from '@/components/FloatingSocials';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,6 +74,7 @@ export default function App() {
       <CustomCursor />
       {loading && <Preloader onComplete={handlePreloaderComplete} />}
       <Header />
+      {!loading && <FloatingSocials />}
       <main>
         <Hero />
         <About />

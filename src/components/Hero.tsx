@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { site, heroImage, contact } from '@/content';
+import { site, heroSlides, heroSlideInterval, contact } from '@/content';
 import HexMesh from './HexMesh';
 import SmartImage from './SmartImage';
 import MagneticButton from './MagneticButton';
@@ -11,7 +11,21 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const lightStreakRef = useRef<HTMLDivElement>(null);
+  const [nav, setNav] = useState({ active: 1, prev: 1 });
+  const { active, prev: prevActive } = nav;
+  const goTo = (to: number) => setNav((s) => ({ active: to, prev: s.active }));
+  const [paused, setPaused] = useState(false);
+  const n = heroSlides.length;
+  const half = Math.floor(n / 2);
+  const offset = (i: number, a: number) => ((((i - a) % n) + n + half) % n) - half;
+  const reducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Auto-advance, one image at a time
+  useEffect(() => {
+    if (paused || reducedMotion || n < 2) return;
+    const id = window.setInterval(() => setNav((s) => ({ active: (s.active + 1) % n, prev: s.active })), heroSlideInterval);
+    return () => window.clearInterval(id);
+  }, [paused, reducedMotion, n, active]);
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,25 +62,14 @@ export default function Hero() {
         },
       );
 
-      // Parallax on hero image
-      gsap.to('.hero-img-wrap', {
-        yPercent: 15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
+      // Row reveal
+      gsap.fromTo('.hero-row', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.3 });
 
-      // Moving red light streak (loop)
-      gsap.to(lightStreakRef.current, {
-        xPercent: 200,
-        duration: 6,
-        repeat: -1,
-        ease: 'power1.inOut',
-        yoyo: true,
+      // Gentle parallax on the image row
+      gsap.to('.hero-row', {
+        yPercent: 8,
+        ease: 'none',
+        scrollTrigger: { trigger: rootRef.current, start: 'top top', end: 'bottom top', scrub: true },
       });
     }, rootRef);
 
@@ -74,80 +77,82 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" ref={rootRef} style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-      {/* Background image with parallax */}
-      <div className="hero-img-wrap" style={{ position: 'absolute', inset: '-10%', zIndex: 0 }}>
-        <SmartImage src={heroImage} alt="Premium car detailing" loading="eager" />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(180deg, rgba(10,10,11,0.7) 0%, rgba(10,10,11,0.5) 50%, rgba(10,10,11,0.95) 100%)',
-          }}
-        />
-        {/* Red light streak */}
-        <div
-          ref={lightStreakRef}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '-50%',
-            width: '40%',
-            height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(227,38,46,0.12), transparent)',
-            pointerEvents: 'none',
-          }}
-        />
-      </div>
-
-      {/* Hex mesh sides */}
+    <section id="hero" ref={rootRef} className="hero3">
+      {/* Background glow + hex mesh */}
+      <div className="hero3-glow" />
       <HexMesh fade="left" style={{ left: 0, width: '20%' }} opacity={0.4} />
       <HexMesh fade="right" style={{ right: 0, width: '20%' }} opacity={0.4} />
 
-      {/* Content */}
-      <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: 80 }}>
-        <div style={{ maxWidth: 900 }}>
-          {/* Tagline */}
-          <div className="hero-fade-up" style={{ display: 'flex', gap: 16, marginBottom: 32, alignItems: 'center' }}>
-            {site.tagline.split(' | ').map((part, i) => (
-              <span key={i} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                {i > 0 && <span style={{ width: 24, height: 1, background: 'var(--red)' }} />}
-                <span className="label">{part}</span>
-              </span>
+      <div className="hero3-inner">
+        {/* Tagline */}
+        <div className="hero-fade-up hero3-tagline">
+          {site.tagline.split(' | ').map((part, i) => (
+            <span key={i} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              {i > 0 && <span style={{ width: 24, height: 1, background: 'var(--red)' }} />}
+              <span className="label">{part}</span>
+            </span>
+          ))}
+        </div>
+
+        {/* Sliding images */}
+        <div
+          className="hero-row"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="hero-lines" aria-hidden="true" />
+          {heroSlides.map((slide, i) => {
+            const pos = offset(i, active);
+            const wrapped = Math.abs(pos - offset(i, prevActive)) > 2;
+            return (
+              <div
+                key={slide.src}
+                className={`hero-slide${wrapped ? ' hero-slide-jump' : ''}`}
+                data-pos={pos}
+                onClick={() => pos !== 0 && goTo(i)}
+                aria-hidden={pos !== 0}
+              >
+                <SmartImage src={slide.src} alt={slide.alt} position={slide.position} loading="eager" />
+              </div>
+            );
+          })}
+          <div className="hero-edge hero-edge-left" aria-hidden="true" />
+          <div className="hero-edge hero-edge-right" aria-hidden="true" />
+          <div className="hero-dots">
+            {heroSlides.map((slide, i) => (
+              <button
+                key={slide.src}
+                type="button"
+                className={`hero-dot${i === active ? ' is-active' : ''}`}
+                onClick={() => goTo(i)}
+                aria-label={`Show image ${i + 1}`}
+              />
             ))}
           </div>
+        </div>
 
-          {/* Headline */}
-          <h1
-            ref={headlineRef}
-            className="display"
-            style={{
-              fontSize: 'clamp(48px, 10vw, 120px)',
-              lineHeight: 0.95,
-              marginBottom: 40,
-            }}
-          >
-            {site.heroHeadline.map((line, i) => (
-              <span key={i} className="reveal-line hero-line">
-                <span className="reveal-line-inner hero-line-inner">{line}</span>
-              </span>
-            ))}
-          </h1>
+        {/* Headline */}
+        <h1 ref={headlineRef} className="display hero3-headline">
+          {site.heroHeadline.map((line, i) => (
+            <span key={i} className="reveal-line hero-line">
+              <span className="reveal-line-inner hero-line-inner">{line}</span>
+            </span>
+          ))}
+        </h1>
 
-          {/* CTAs */}
-          <div className="hero-fade-up" style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center' }}>
-            <MagneticButton as="a" href="#contact" className="btn btn-primary" strength={0.2}>
-              <span className="sweep" />
-              Book a Detailing
-            </MagneticButton>
-            <MagneticButton as="a" href={`https://wa.me/${contact.whatsappNumber}`} className="btn btn-ghost" strength={0.2}>
-              <span className="sweep" />
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 21l1.5-4.5A8 8 0 1 1 12 20a7.9 7.9 0 0 1-4-1L3 21z" />
-              </svg>
-              WhatsApp
-            </MagneticButton>
-          </div>
+        {/* CTAs */}
+        <div className="hero-fade-up hero3-ctas">
+          <MagneticButton as="a" href="#contact" className="btn btn-primary" strength={0.2}>
+            <span className="sweep" />
+            Book a Detailing
+          </MagneticButton>
+          <MagneticButton as="a" href={`https://wa.me/${contact.whatsappNumber}`} className="btn btn-ghost" strength={0.2}>
+            <span className="sweep" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 21l1.5-4.5A8 8 0 1 1 12 20a7.9 7.9 0 0 1-4-1L3 21z" />
+            </svg>
+            WhatsApp
+          </MagneticButton>
         </div>
       </div>
 

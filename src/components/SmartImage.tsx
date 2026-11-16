@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   loading?: 'lazy' | 'eager';
   sizes?: string;
+  position?: string;
 };
 
 /**
@@ -13,7 +14,7 @@ type Props = {
  * then crossfades to the image. If the image fails to load (e.g. the file
  * hasn't been added to /public/images yet), the placeholder stays visible.
  */
-export default function SmartImage({ src, alt, className = '', loading = 'lazy' }: Props) {
+export default function SmartImage({ src, alt, className = '', loading = 'lazy', position = 'center' }: Props) {
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -54,6 +55,7 @@ export default function SmartImage({ src, alt, className = '', loading = 'lazy' 
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          objectPosition: position,
         }}
       />
     </div>
