@@ -119,7 +119,7 @@ export const contact = {
   hours: 'Mon\u2013Sat: 9:00 AM \u2013 7:00 PM',
   hoursSun: 'Sun: Closed',
   // Google Maps embed URL — replace with your actual embed link
-  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.123!2d80.2068!3d13.0674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA0JzAwLjIiTiA4MMKwMTInMjQuNSJF!5e0!3m2!1sen!2sin!4v0000000000000',
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.6610187396986!2d80.2123555!3d13.120648000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e8038e0481%3A0x2122cf1be330610e!2sBlackline%20Detailing%20Studio!5e0!3m2!1sen!2sin!4v1794836542026!5m2!1sen!2sin",
 };
 
 export const socials = [
