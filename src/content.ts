@@ -17,8 +17,8 @@ export const about = {
   story:
     'BLACK LINE was founded on a simple obsession: every vehicle deserves to look better than the day it left the showroom. What started as a one-bay workshop has grown into a full-fledged detailing, protection, and customization studio — but the philosophy hasn\u2019t changed. We treat every car as if it\u2019s our own, because the difference between clean and flawless is measured in microns.',
   counters: [
-    { label: 'Cars Detailed', value: 1200, suffix: '+' },
-    { label: 'Happy Clients', value: 950, suffix: '+' },
+    { label: 'Cars Detailed', value: 100, suffix: '+' },
+    { label: 'Happy Clients', value: 100, suffix: '+' },
   ],
 };
 
