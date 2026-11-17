@@ -90,30 +90,16 @@ export default function Footer() {
             <a href={`tel:${contact.phones[0].replace(/\s/g, '')}`} style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text)' }}>
               {contact.phones[0]}
             </a>
-            <br />
-            <a href={`mailto:${contact.email}`} style={{ color: 'var(--muted)', fontSize: 15 }}>
-              {contact.email}
-            </a>
           </div>
         </div>
 
         {/* Giant wordmark outline */}
         <div ref={wordmarkRef} style={{ textAlign: 'center', marginBottom: 40, overflow: 'hidden' }}>
-          <div
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(60px, 18vw, 220px)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
-              lineHeight: 0.9,
-              color: 'transparent',
-              WebkitTextStroke: '1px var(--line)',
-              userSelect: 'none',
-            }}
-          >
-            BLACK LINE
-          </div>
+          <img
+            src="/images/logo-full.png"
+            alt="BLACK LINE Detailing Studio"
+            style={{ width: 'clamp(220px, 34vw, 420px)', height: 'auto', display: 'block', margin: '0 auto 28px', userSelect: 'none' }}
+          />
           <div
             style={{
               width: 'clamp(100px, 30vw, 300px)',
@@ -141,9 +127,14 @@ export default function Footer() {
             gap: 16,
           }}
         >
-          <p style={{ color: 'var(--muted)', fontSize: 13 }}>
-            &copy; {new Date().getFullYear()} BLACK LINE Detailing Studio. All rights reserved.
-          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <p style={{ color: 'var(--muted)', fontSize: 13 }}>
+              &copy; {new Date().getFullYear()} BLACK LINE Detailing Studio. All rights reserved.
+            </p>
+            <p style={{ color: 'var(--muted)', fontSize: 12, letterSpacing: '0.04em' }}>
+              Built and maintained by <span style={{ color: 'var(--text)', fontWeight: 600 }}>Z-Hams</span>
+            </p>
+          </div>
           <button
             onClick={scrollToTop}
             className="label"

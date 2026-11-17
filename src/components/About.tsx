@@ -154,7 +154,7 @@ export default function About() {
               <SmartImage src={about.image} alt="BLACK LINE detailing studio" />
             </div>
 
-            <div className="about-counters" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            <div className="about-counters" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
               {about.counters.map((c) => (
                 <div key={c.label} className="about-counter" style={{ borderTop: '1px solid var(--line)', paddingTop: 16 }}>
                   <div

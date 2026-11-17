@@ -17,7 +17,6 @@ export const about = {
   story:
     'BLACK LINE was founded on a simple obsession: every vehicle deserves to look better than the day it left the showroom. What started as a one-bay workshop has grown into a full-fledged detailing, protection, and customization studio — but the philosophy hasn\u2019t changed. We treat every car as if it\u2019s our own, because the difference between clean and flawless is measured in microns.',
   counters: [
-    { label: 'Years in Business', value: 8, suffix: '+' },
     { label: 'Cars Detailed', value: 1200, suffix: '+' },
     { label: 'Happy Clients', value: 950, suffix: '+' },
   ],
@@ -28,21 +27,20 @@ export type Service = {
   number: string;
   name: string;
   description: string;
-  image: string;
 };
 
 export const services: Service[] = [
-  { id: 'ceramic-coating', number: '01', name: 'Ceramic Coating', description: 'Lock in a glass-like shine that repels water, dirt, and UV damage for years.', image: '/images/supra.jpg' },
-  { id: 'ppf', number: '02', name: 'Paint Protection Film', description: 'Self-healing transparent film that absorbs stone chips, scratches, and road debris.', image: '/images/porsche.jpg' },
-  { id: 'exterior-detailing', number: '03', name: 'Exterior Detailing', description: 'Deep clean, decontamination, and protection for every exterior surface.', image: '/images/wrx-grey.jpg' },
-  { id: 'interior-detailing', number: '04', name: 'Interior Detailing', description: 'Sanitise, condition, and restore every surface inside the cabin.', image: '/images/wrx-black.jpg' },
-  { id: 'foam-wash', number: '05', name: 'Foam Wash', description: 'pH-neutral foam bath that lifts dirt without touching the paint.', image: '/images/impreza-white.jpg' },
-  { id: 'paint-correction', number: '06', name: 'Paint Correction', description: 'Machine polishing to remove swirl marks, oxidation, and holograms.', image: '/images/supra.jpg' },
-  { id: 'vinyl-wrapping', number: '07', name: 'Vinyl Wrapping', description: 'Full or partial colour changes with premium cast vinyl films.', image: '/images/porsche.jpg' },
-  { id: 'headlight-restoration', number: '08', name: 'Headlight Restoration', description: 'Cloudy, yellowed lenses restored to factory clarity and protection.', image: '/images/wrx-grey.jpg' },
-  { id: 'windshield-coating', number: '09', name: 'Windshield Coating', description: 'Hydrophobic coating that sheets rain away for safer driving.', image: '/images/wrx-black.jpg' },
-  { id: 'sunfilm', number: '10', name: 'Sunfilm', description: 'Heat-rejecting window films that keep the cabin cool and protected.', image: '/images/impreza-white.jpg' },
-  { id: 'modifications', number: '11', name: 'Modifications', description: 'Performance and aesthetic upgrades, installed and tuned in-house.', image: '/images/supra.jpg' },
+  { id: 'ceramic-coating', number: '01', name: 'Ceramic Coating', description: 'Lock in a glass-like shine that repels water, dirt, and UV damage for years.' },
+  { id: 'ppf', number: '02', name: 'Paint Protection Film', description: 'Self-healing transparent film that absorbs stone chips, scratches, and road debris.' },
+  { id: 'exterior-detailing', number: '03', name: 'Exterior Detailing', description: 'Deep clean, decontamination, and protection for every exterior surface.' },
+  { id: 'interior-detailing', number: '04', name: 'Interior Detailing', description: 'Sanitise, condition, and restore every surface inside the cabin.' },
+  { id: 'foam-wash', number: '05', name: 'Foam Wash', description: 'pH-neutral foam bath that lifts dirt without touching the paint.' },
+  { id: 'paint-correction', number: '06', name: 'Paint Correction', description: 'Machine polishing to remove swirl marks, oxidation, and holograms.' },
+  { id: 'vinyl-wrapping', number: '07', name: 'Vinyl Wrapping', description: 'Full or partial colour changes with premium cast vinyl films.' },
+  { id: 'headlight-restoration', number: '08', name: 'Headlight Restoration', description: 'Cloudy, yellowed lenses restored to factory clarity and protection.' },
+  { id: 'windshield-coating', number: '09', name: 'Windshield Coating', description: 'Hydrophobic coating that sheets rain away for safer driving.' },
+  { id: 'sunfilm', number: '10', name: 'Sunfilm', description: 'Heat-rejecting window films that keep the cabin cool and protected.' },
+  { id: 'modifications', number: '11', name: 'Modifications', description: 'Performance and aesthetic upgrades, installed and tuned in-house.' },
 ];
 
 export type Work = {
@@ -125,8 +123,6 @@ export const contact = {
 export const socials = [
   { name: 'Instagram', url: 'https://instagram.com/blackline.detailing__' },
   { name: 'WhatsApp', url: 'https://wa.me/919940331994' },
-  { name: 'Facebook', url: 'https://facebook.com/blackline.detailing' },
-  { name: 'YouTube', url: 'https://youtube.com/@blackline.detailing' },
 ];
 
 export const nav = [

@@ -71,31 +71,11 @@ export default function Preloader({ onComplete }: Props) {
             padding: '20px 0',
           }}
         >
-          <div
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(28px, 6vw, 48px)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              color: 'var(--text)',
-            }}
-          >
-            BLACK LINE
-          </div>
-          <div
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(10px, 1.5vw, 12px)',
-              fontWeight: 500,
-              textTransform: 'uppercase',
-              letterSpacing: '0.35em',
-              color: 'var(--muted)',
-              marginTop: 8,
-            }}
-          >
-            Detailing Studio
-          </div>
+          <img
+            src="/images/logo-full.png"
+            alt="BLACK LINE Detailing Studio"
+            style={{ width: 'clamp(180px, 38vw, 300px)', height: 'auto', display: 'block', margin: '0 auto' }}
+          />
         </div>
         <div
           ref={lineRef}
